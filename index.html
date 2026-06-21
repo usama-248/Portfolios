@@ -793,7 +793,7 @@
                     modern technologies</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
                 <!-- Project 1: Artflow Pro -->
                 <div onclick="openModal(
@@ -807,7 +807,11 @@
 🔷 Real-Time Chat: SignalR-based live chat between users.
 🔷 Image Uploads: Optimized Cloudinary integration for image handling.
 🔷 Secure Storage: Environment variables and secure storage for sensitive data.
-🔷 In-App Purchases: Smooth upgrade path from Free to Pro accounts.`,
+🔷 In-App Purchases: Smooth upgrade path from Free to Pro accounts.
+
+📲 <strong>Download:</strong><br>
+🍎 <a href='https://apps.apple.com/us/app/artflowpro/id6480331165' target='_blank' rel='noopener noreferrer' class='text-[#293519] underline font-medium'>App Store — ArtFlowPro</a><br>
+🤖 <a href='https://play.google.com/store/apps/details?id=com.infoonscreen.artflow&amp;hl=en' target='_blank' rel='noopener noreferrer' class='text-[#293519] underline font-medium'>Google Play — ArtFlow Pro</a>`,
     [
         'assets/artflow_pro_images/artflow_1.png',
         'assets/artflow_pro_images/artflow_2.png',
@@ -827,9 +831,9 @@
                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
                         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent h-20">
                         </div>
-                        <div class="absolute bottom-4 left-4">
+                        <div class="absolute bottom-4 left-4 flex flex-wrap gap-2">
                             <span
-                                class="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold text-white g-[#293519]">Featured</span>
+                                class="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold text-white bg-[#293519]">Live on Stores</span>
                         </div>
                     </div>
                     <div class="p-6">
@@ -1605,6 +1609,14 @@ Google AdMob (App Open, Banner, Interstitial, Rewarded Ads)
                     </div>
                 </div>
 
+            </div>
+
+            <div class="text-center mt-10">
+                <button id="toggleProjectsBtn" type="button"
+                    class="inline-flex items-center gap-2 border-2 border-[#293519] text-[#293519] px-8 py-3 rounded-lg font-medium hover:bg-[#f3f3e5] transition duration-200">
+                    <span id="toggleProjectsLabel">More Projects</span>
+                    <i id="toggleProjectsIcon" class="fas fa-chevron-down"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -2548,6 +2560,40 @@ Google AdMob (App Open, Banner, Interstitial, Rewarded Ads)
         document.getElementById('prevSlide').addEventListener('click', () => {
             currentSlideIndex = (currentSlideIndex - 1 + slideImages.length) % slideImages.length;
             renderSlide();
+        });
+
+        const INITIAL_PROJECT_COUNT = 6;
+        const projectCards = document.querySelectorAll('#projectsGrid .project-card');
+        const toggleProjectsBtn = document.getElementById('toggleProjectsBtn');
+        const toggleProjectsLabel = document.getElementById('toggleProjectsLabel');
+        const toggleProjectsIcon = document.getElementById('toggleProjectsIcon');
+        let projectsExpanded = false;
+
+        projectCards.forEach((card, index) => {
+            if (index >= INITIAL_PROJECT_COUNT) {
+                card.classList.add('hidden');
+            }
+        });
+
+        if (projectCards.length <= INITIAL_PROJECT_COUNT) {
+            toggleProjectsBtn.classList.add('hidden');
+        }
+
+        toggleProjectsBtn.addEventListener('click', () => {
+            projectsExpanded = !projectsExpanded;
+
+            projectCards.forEach((card, index) => {
+                if (index >= INITIAL_PROJECT_COUNT) {
+                    card.classList.toggle('hidden', !projectsExpanded);
+                }
+            });
+
+            toggleProjectsLabel.textContent = projectsExpanded ? 'Show Less' : 'More Projects';
+            toggleProjectsIcon.className = projectsExpanded ? 'fas fa-chevron-up' : 'fas fa-chevron-down';
+
+            if (!projectsExpanded) {
+                document.getElementById('projects').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         });
     });
 </script>
