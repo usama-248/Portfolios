@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="SQL">
+  <ellipse cx="64" cy="34" rx="42" ry="16" fill="#CC2927"/>
+  <path fill="#CC2927" d="M22 34v52c0 8.8 18.8 16 42 16s42-7.2 42-16V34c0 8.8-18.8 16-42 16S22 42.8 22 34z"/>
+  <ellipse cx="64" cy="54" rx="42" ry="16" fill="#E34F4D"/>
+  <ellipse cx="64" cy="74" rx="42" ry="16" fill="#F0706E"/>
+  <ellipse cx="64" cy="94" rx="42" ry="16" fill="#CC2927"/>
+</svg>

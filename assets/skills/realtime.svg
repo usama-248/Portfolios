@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Real-Time">
+  <circle cx="64" cy="64" r="56" fill="#293519"/>
+  <path fill="#EFD003" d="M64 28v36l24 14-8 13-32-19V28z"/>
+  <circle cx="64" cy="64" r="8" fill="#EFD003"/>
+</svg>
