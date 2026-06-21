@@ -69,6 +69,88 @@
             border-bottom-right-radius: 10px;
             z-index: 10;
         }
+
+        .section-carousel {
+            position: relative;
+            padding: 0 3rem;
+        }
+
+        .carousel-viewport {
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            will-change: transform;
+        }
+
+        .carousel-slide {
+            flex-shrink: 0;
+            padding: 0 0.5rem;
+            box-sizing: border-box;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 9999px;
+            background: #293519;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .carousel-btn:hover {
+            background: #1e2a12;
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .carousel-btn:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+            transform: translateY(-50%);
+        }
+
+        .carousel-prev {
+            left: 0;
+        }
+
+        .carousel-next {
+            right: 0;
+        }
+
+        .carousel-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 9999px;
+            background: #d1d5db;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .carousel-dot.active {
+            background: #EFD003;
+            transform: scale(1.25);
+        }
+
+        @media (max-width: 640px) {
+            .section-carousel {
+                padding: 0 2.25rem;
+            }
+
+            .carousel-btn {
+                width: 2.25rem;
+                height: 2.25rem;
+                font-size: 0.75rem;
+            }
+        }
     </style>
 </head>
 
@@ -79,21 +161,23 @@
             <div class="flex justify-between h-16">
                 <!-- Brand -->
                 <div class="flex items-center">
-                    <span class="text-xl font-bold text-[#EFD003]">PORTFOLIO</span>
+                    <a href="#home" class="text-xl font-bold text-[#EFD003] hover:opacity-90 transition">PORTFOLIO</a>
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden lg:flex items-center gap-5 xl:gap-6 text-sm xl:text-base">
                     <a href="#home" class="text-white hover:text-[#EFD003] transition duration-200">Home</a>
                     <a href="#about" class="text-white hover:text-[#EFD003] transition duration-200">About</a>
                     <a href="#skills" class="text-white hover:text-[#EFD003] transition duration-200">Skills</a>
                     <a href="#experience" class="text-white hover:text-[#EFD003] transition duration-200">Experience</a>
                     <a href="#projects" class="text-white hover:text-[#EFD003] transition duration-200">Projects</a>
+                    <a href="#testimonials" class="text-white hover:text-[#EFD003] transition duration-200">Reviews</a>
+                    <a href="#education" class="text-white hover:text-[#EFD003] transition duration-200">Education</a>
                     <a href="#contact" class="text-white hover:text-[#EFD003] transition duration-200">Contact</a>
                 </div>
 
                 <!-- Mobile Toggle Button -->
-                <div class="md:hidden flex items-center">
+                <div class="lg:hidden flex items-center">
                     <button id="menu-btn" class="text-white">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
@@ -102,12 +186,14 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-[#293519] pb-4 px-4 shadow-lg">
+        <div id="mobile-menu" class="hidden lg:hidden bg-[#293519] pb-4 px-4 shadow-lg">
             <a href="#home" class="block py-2 text-white hover:text-[#EFD003] transition duration-200">Home</a>
             <a href="#about" class="block py-2 text-white hover:text-[#EFD003] transition duration-200">About</a>
             <a href="#skills" class="block py-2 text-white hover:text-[#EFD003] transition duration-200">Skills</a>
             <a href="#experience" class="block py-2 text-white hover:text-[#EFD003] transition duration-200">Experience</a>
             <a href="#projects" class="block py-2 text-white hover:text-[#EFD003] transition duration-200">Projects</a>
+            <a href="#testimonials" class="block py-2 text-white hover:text-[#EFD003] transition duration-200">Reviews</a>
+            <a href="#education" class="block py-2 text-white hover:text-[#EFD003] transition duration-200">Education</a>
             <a href="#contact" class="block py-2 text-white hover:text-[#EFD003] transition duration-200">Contact</a>
         </div>
     </nav>
@@ -1219,10 +1305,16 @@
                     LinkedIn</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <div class="section-carousel max-w-4xl mx-auto" data-carousel data-sm="1" data-md="1" data-lg="1">
+                <button type="button" class="carousel-btn carousel-prev" aria-label="Previous testimonial">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="carousel-viewport">
+                    <div class="carousel-track">
 
                 <!-- Ali Baig — CEO, Orbilon -->
-                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 flex flex-col">
+                <div class="carousel-slide">
+                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 flex flex-col min-h-[320px]">
                     <i class="fas fa-quote-left text-[#EFD003] text-2xl mb-4"></i>
                     <p class="text-gray-600 flex-grow leading-relaxed">Usama has been working with us for over 3 years on
                         projects involving Flutter/Firebase and helped us build up the team from the ground. He's honest,
@@ -1235,9 +1327,11 @@
                         <p class="text-xs text-gray-400 mt-1">Managed Muhammad directly · Sep 2025</p>
                     </div>
                 </div>
+                </div>
 
                 <!-- Fahad Rehman — Client -->
-                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 flex flex-col">
+                <div class="carousel-slide">
+                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 flex flex-col min-h-[320px]">
                     <i class="fas fa-quote-left text-[#EFD003] text-2xl mb-4"></i>
                     <p class="text-gray-600 flex-grow leading-relaxed">I had a great experience working with Muhammad
                         Usama on a mobile app project. He's a highly skilled Flutter developer who knows his way around
@@ -1251,9 +1345,11 @@
                         <p class="text-xs text-gray-400 mt-1">Client · Sep 2025</p>
                     </div>
                 </div>
+                </div>
 
                 <!-- Kashif Tufail — Client -->
-                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 flex flex-col">
+                <div class="carousel-slide">
+                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 flex flex-col min-h-[320px]">
                     <i class="fas fa-quote-left text-[#EFD003] text-2xl mb-4"></i>
                     <p class="text-gray-600 flex-grow leading-relaxed">I had an excellent experience working with Usama.
                         He delivered our Flutter project on time, resolved complex issues efficiently, and maintained
@@ -1265,9 +1361,11 @@
                         <p class="text-xs text-gray-400 mt-1">Client · Sep 2025</p>
                     </div>
                 </div>
+                </div>
 
                 <!-- Lala Iqbal — Client -->
-                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 flex flex-col">
+                <div class="carousel-slide">
+                <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100 flex flex-col min-h-[320px]">
                     <i class="fas fa-quote-left text-[#EFD003] text-2xl mb-4"></i>
                     <p class="text-gray-600 flex-grow leading-relaxed">Usama is one of the most dedicated and honest
                         professionals I've had the chance to work with. He is proactive in every sense, always taking
@@ -1281,7 +1379,153 @@
                         <p class="text-xs text-gray-400 mt-1">Client · Sep 2025</p>
                     </div>
                 </div>
+                </div>
 
+                    </div>
+                </div>
+                <button type="button" class="carousel-btn carousel-next" aria-label="Next testimonial">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="carousel-dots flex justify-center gap-2 mt-8"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Education & Certifications -->
+    <section id="education" class="py-14 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-[#293519] mb-4">Education &amp; Certifications</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Formal training and verified credentials from LinkedIn</p>
+            </div>
+
+            <!-- Virtual Degree -->
+            <h3 class="text-lg font-semibold text-[#293519] mb-4 max-w-5xl mx-auto">Virtual Degree</h3>
+            <div class="max-w-2xl mx-auto mb-10">
+                <div class="flex gap-5 p-6 rounded-xl bg-gray-50 border border-gray-100">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center">
+                        <i class="fas fa-university text-indigo-700 text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800">BS Computer Science</h3>
+                        <p class="text-[#293519] text-sm font-medium">Virtual University of Pakistan · Virtual Campus</p>
+                        <p class="text-gray-600 text-sm mt-2">Bachelor's degree via Virtual University's online learning
+                            platform — building a strong foundation in computer science alongside professional mobile
+                            development experience.</p>
+                        <a href="https://www.linkedin.com/in/muhammadusama2486/details/education/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-block text-sm text-[#293519] font-medium hover:text-[#EFD003] transition mt-3">View
+                            on LinkedIn →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Professional Diploma -->
+            <h3 class="text-lg font-semibold text-[#293519] mb-4 max-w-5xl mx-auto">Professional Diploma</h3>
+            <div class="max-w-2xl mx-auto mb-12">
+                <div class="flex gap-5 p-6 rounded-xl bg-gray-50 border border-gray-100">
+                    <div class="flex-shrink-0 w-12 h-12 rounded-full bg-[#293519] flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-[#EFD003] text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-800">Diploma — Web &amp; Mobile App Developer</h3>
+                        <p class="text-[#293519] text-sm font-medium">CORVIT · 2022</p>
+                        <p class="text-gray-600 text-sm mt-2">Web &amp; Mobile App Development — HTML, CSS, JavaScript,
+                            jQuery, WordPress, PHP, MySQL, and Flutter.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <h3 class="text-lg font-semibold text-[#293519] mb-4 max-w-5xl mx-auto">Certifications</h3>
+            <div class="section-carousel max-w-6xl mx-auto" data-carousel data-sm="1" data-md="2" data-lg="3">
+                <button type="button" class="carousel-btn carousel-prev" aria-label="Previous certificate">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="carousel-viewport">
+                    <div class="carousel-track">
+
+                <div class="carousel-slide">
+                <div class="p-6 rounded-xl bg-gray-50 border border-gray-100 flex flex-col h-full min-h-[260px]">
+                    <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-certificate text-orange-600"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">Web Graphic &amp; Mobile App Development</h3>
+                    <p class="text-sm text-[#293519] mb-2">NAVTTC · Mar 2022</p>
+                    <p class="text-xs text-gray-500 mb-4 flex-grow">National Vocational &amp; Technical Training
+                        Commission — valid until Sep 2030</p>
+                    <a href="https://www.linkedin.com/in/muhammadusama2486/details/certifications/" target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-sm text-[#293519] font-medium hover:text-[#EFD003] transition">View on LinkedIn →</a>
+                </div>
+                </div>
+
+                <div class="carousel-slide">
+                <div class="p-6 rounded-xl bg-gray-50 border border-gray-100 flex flex-col h-full min-h-[260px]">
+                    <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-robot text-purple-600"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">AI Foundations: Machine Learning</h3>
+                    <p class="text-sm text-[#293519] mb-2">LinkedIn Learning · Sep 2025</p>
+                    <p class="text-xs text-gray-500 mb-4 flex-grow">Artificial Intelligence &amp; machine learning
+                        fundamentals for AI-powered app features</p>
+                    <a href="https://lnkd.in/d5YGmxhU" target="_blank" rel="noopener noreferrer"
+                        class="text-sm text-[#293519] font-medium hover:text-[#EFD003] transition">View Certificate →</a>
+                </div>
+                </div>
+
+                <div class="carousel-slide">
+                <div class="p-6 rounded-xl bg-gray-50 border border-gray-100 flex flex-col h-full min-h-[260px]">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-cloud text-blue-600"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">Cloud Computing: Core Concepts</h3>
+                    <p class="text-sm text-[#293519] mb-2">LinkedIn Learning · Sep 2025</p>
+                    <p class="text-xs text-gray-500 mb-4 flex-grow">Cloud models, platforms, and services — supports
+                        backend &amp; deployment workflows</p>
+                    <a href="https://www.linkedin.com/learning/certificates/ee357e31c6c2db66985207e7ddac6d01d45ca047d12cb69a7b40191374e2b693"
+                        target="_blank" rel="noopener noreferrer"
+                        class="text-sm text-[#293519] font-medium hover:text-[#EFD003] transition">View Certificate →</a>
+                </div>
+                </div>
+
+                <div class="carousel-slide">
+                <div class="p-6 rounded-xl bg-gray-50 border border-gray-100 flex flex-col h-full min-h-[260px]">
+                    <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-network-wired text-purple-600"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">AI Foundations: Neural Networks</h3>
+                    <p class="text-sm text-[#293519] mb-2">LinkedIn Learning · Sep 2025</p>
+                    <p class="text-xs text-gray-500 mb-4 flex-grow">Neural network fundamentals for AI-powered mobile
+                        app features and intelligent automation</p>
+                    <a href="https://www.linkedin.com/learning/certificates/dc66f77be4c6a4850812d902ad379873b2c669f8820bdca940e742f409d44ecc"
+                        target="_blank" rel="noopener noreferrer"
+                        class="text-sm text-[#293519] font-medium hover:text-[#EFD003] transition">View Certificate →</a>
+                </div>
+                </div>
+
+                <div class="carousel-slide">
+                <div class="p-6 rounded-xl bg-gray-50 border border-gray-100 flex flex-col h-full min-h-[260px]">
+                    <div class="w-10 h-10 rounded-full bg-sky-100 flex items-center justify-center mb-4">
+                        <i class="fas fa-server text-sky-600"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">Foundations of Cloud Computing</h3>
+                    <p class="text-sm text-[#293519] mb-2">LinkedIn Learning · Sep 2025</p>
+                    <p class="text-xs text-gray-500 mb-4 flex-grow">Cloud models, platforms, services &amp; careers —
+                        models, platforms, and deployment strategies</p>
+                    <a href="https://www.linkedin.com/learning/certificates/7f6d27a1c4854fe0cdb65a61782493ed9a61e35c867e833fa2de02100bdc0761"
+                        target="_blank" rel="noopener noreferrer"
+                        class="text-sm text-[#293519] font-medium hover:text-[#EFD003] transition">View Certificate →</a>
+                </div>
+                </div>
+
+                    </div>
+                </div>
+                <button type="button" class="carousel-btn carousel-next" aria-label="Next certificate">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="carousel-dots flex justify-center gap-2 mt-8"></div>
             </div>
         </div>
     </section>
@@ -1405,28 +1649,37 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-[#293519] text-white py-8">
+    <footer class="bg-[#293519] text-white py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="flex flex-col lg:flex-row justify-between gap-8">
                 <!-- Left Section -->
-                <div class="mb-4 md:mb-0">
-                    <span class="text-xl font-bold text-[#EFD003]">Muhammad Usama – Lead Senior Flutter Developer</span>
+                <div class="max-w-md">
+                    <a href="#home" class="text-xl font-bold text-[#EFD003] hover:opacity-90 transition">Muhammad Usama</a>
                     <p class="text-gray-300 mt-2">Lead Senior Flutter Developer · Full-stack mobile apps</p>
+                    <a href="mailto:mobile.appdevu@gmail.com"
+                        class="inline-block text-sm text-gray-400 hover:text-[#EFD003] transition mt-3">mobile.appdevu@gmail.com</a>
                 </div>
 
-                <!-- Right Navigation Links -->
-                <div class="flex space-x-6">
-                    <a href="#home" class="text-gray-300 hover:text-[#EFD003] transition duration-200">Home</a>
-                    <a href="#skills" class="text-gray-300 hover:text-[#EFD003] transition duration-200">Skills</a>
-                    <a href="#experience" class="text-gray-300 hover:text-[#EFD003] transition duration-200">Experience</a>
-                    <a href="#projects" class="text-gray-300 hover:text-[#EFD003] transition duration-200">Projects</a>
-                    <a href="#contact" class="text-gray-300 hover:text-[#EFD003] transition duration-200">Contact</a>
+                <!-- Footer Navigation -->
+                <div>
+                    <p class="text-sm font-semibold text-[#EFD003] mb-3 uppercase tracking-wider">Quick Links</p>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-2 text-sm">
+                        <a href="#home" class="text-gray-300 hover:text-[#EFD003] transition duration-200">Home</a>
+                        <a href="#about" class="text-gray-300 hover:text-[#EFD003] transition duration-200">About</a>
+                        <a href="#skills" class="text-gray-300 hover:text-[#EFD003] transition duration-200">Skills</a>
+                        <a href="#experience" class="text-gray-300 hover:text-[#EFD003] transition duration-200">Experience</a>
+                        <a href="#projects" class="text-gray-300 hover:text-[#EFD003] transition duration-200">Projects</a>
+                        <a href="#testimonials" class="text-gray-300 hover:text-[#EFD003] transition duration-200">Reviews</a>
+                        <a href="#education" class="text-gray-300 hover:text-[#EFD003] transition duration-200">Education</a>
+                        <a href="#contact" class="text-gray-300 hover:text-[#EFD003] transition duration-200">Contact</a>
+                    </div>
                 </div>
             </div>
 
             <!-- Bottom Section -->
-            <div class="border-t border-[#1e2a12] mt-8 pt-8 text-center text-gray-400">
-                <p>© 2025 Muhammad Usama. All rights reserved.</p>
+            <div class="border-t border-[#1e2a12] mt-8 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
+                <p class="text-gray-400 text-sm">© 2025 Muhammad Usama. All rights reserved.</p>
+                <p class="text-gray-500 text-xs">Lahore, Pakistan · Available for remote work</p>
             </div>
         </div>
     </footer>
@@ -1461,6 +1714,94 @@
                 }
             });
         });
+
+        // Horizontal carousels — testimonials & certificates
+        function initSectionCarousel(root) {
+            const track = root.querySelector('.carousel-track');
+            const slides = root.querySelectorAll('.carousel-slide');
+            const prevBtn = root.querySelector('.carousel-prev');
+            const nextBtn = root.querySelector('.carousel-next');
+            const dotsContainer = root.querySelector('.carousel-dots');
+            let index = 0;
+
+            function getSlidesPerView() {
+                if (window.innerWidth >= 1024) return parseInt(root.dataset.lg, 10) || 1;
+                if (window.innerWidth >= 768) return parseInt(root.dataset.md, 10) || 1;
+                return parseInt(root.dataset.sm, 10) || 1;
+            }
+
+            function getMaxIndex() {
+                return Math.max(0, slides.length - getSlidesPerView());
+            }
+
+            function buildDots() {
+                if (!dotsContainer) return;
+                dotsContainer.innerHTML = '';
+                const total = getMaxIndex() + 1;
+                for (let i = 0; i < total; i++) {
+                    const dot = document.createElement('button');
+                    dot.type = 'button';
+                    dot.className = 'carousel-dot' + (i === index ? ' active' : '');
+                    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                    dot.addEventListener('click', () => {
+                        index = i;
+                        update();
+                    });
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+            function update() {
+                const spv = getSlidesPerView();
+                const slideWidth = 100 / spv;
+                slides.forEach(slide => {
+                    slide.style.flexBasis = slideWidth + '%';
+                    slide.style.maxWidth = slideWidth + '%';
+                });
+                track.style.transform = 'translateX(-' + (index * slideWidth) + '%)';
+
+                if (prevBtn) prevBtn.disabled = index === 0;
+                if (nextBtn) nextBtn.disabled = index >= getMaxIndex();
+
+                if (dotsContainer) {
+                    dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                }
+            }
+
+            function goNext() {
+                if (index < getMaxIndex()) {
+                    index++;
+                    update();
+                }
+            }
+
+            function goPrev() {
+                if (index > 0) {
+                    index--;
+                    update();
+                }
+            }
+
+            if (prevBtn) prevBtn.addEventListener('click', goPrev);
+            if (nextBtn) nextBtn.addEventListener('click', goNext);
+
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    if (index > getMaxIndex()) index = getMaxIndex();
+                    buildDots();
+                    update();
+                }, 150);
+            });
+
+            buildDots();
+            update();
+        }
+
+        document.querySelectorAll('[data-carousel]').forEach(initSectionCarousel);
 
         // Contact form — submits to Formspree
         const contactForm = document.getElementById('contact-form');
