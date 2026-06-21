@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 844" role="img" aria-label="Screen mirroring">
+  <rect width="390" height="844" fill="#0f172a"/>
+  <rect x="20" y="60" width="350" height="700" rx="32" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+  <rect x="40" y="120" width="310" height="180" rx="16" fill="#293519"/>
+  <text x="195" y="210" text-anchor="middle" fill="#EFD003" font-family="Arial,sans-serif" font-size="18" font-weight="700">Screen Mirroring</text>
+  <text x="195" y="240" text-anchor="middle" fill="#cbd5e1" font-family="Arial,sans-serif" font-size="13">Cast phone to Smart TV</text>
+  <rect x="40" y="330" width="145" height="100" rx="12" fill="#334155"/>
+  <rect x="205" y="330" width="145" height="100" rx="12" fill="#334155"/>
+  <text x="112" y="390" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="12">Video Cast</text>
+  <text x="277" y="390" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="12">YouTube</text>
+  <rect x="40" y="450" width="310" height="56" rx="28" fill="#EFD003"/>
+  <text x="195" y="485" text-anchor="middle" fill="#293519" font-family="Arial,sans-serif" font-size="14" font-weight="700">Connect to TV</text>
+</svg>

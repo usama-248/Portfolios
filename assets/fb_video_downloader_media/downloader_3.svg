@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 844" role="img" aria-label="Offline playback">
+  <rect width="390" height="844" fill="#0f172a"/>
+  <rect x="20" y="60" width="350" height="700" rx="32" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+  <text x="195" y="130" text-anchor="middle" fill="#38bdf8" font-family="Arial,sans-serif" font-size="20" font-weight="700">Offline Playback</text>
+  <rect x="55" y="200" width="280" height="200" rx="16" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <polygon points="175,270 175,330 225,300" fill="#EFD003"/>
+  <rect x="55" y="430" width="280" height="8" rx="4" fill="#334155"/>
+  <rect x="55" y="430" width="120" height="8" rx="4" fill="#EFD003"/>
+  <text x="195" y="490" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="15">HD quality support</text>
+  <text x="195" y="520" text-anchor="middle" fill="#94a3b8" font-family="Arial,sans-serif" font-size="13">Watch saved videos anytime</text>
+</svg>
